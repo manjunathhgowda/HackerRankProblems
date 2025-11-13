@@ -1,0 +1,29 @@
+'''
+Maximizing XOR
+
+Given two integers l and r, find the maximal value of a XOR b, 
+where l ≤ a ≤ b ≤ r.
+
+Example:
+Input:
+10
+15
+Output:
+7
+Explanation:
+Possible XOR values between 10 and 15 give a maximum of 7.
+'''
+def maximizingXor(l, r):
+    # XOR l and r to find differing bits
+    xor_val = l ^ r 
+    # Find the most significant bit where they differ
+    msb = 0
+    while xor_val > 0:
+        msb = (msb << 1) | 1
+        xor_val >>= 1
+    
+    # The maximum XOR possible between l and r
+    return msb
+# Example usage
+print(maximizingXor(10, 15))   # 7
+print(maximizingXor(11, 100))  # 127
